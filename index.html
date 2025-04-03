@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 관리 프로그램</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 좌측 설정 패널 -->
+        <div class="sidebar">
+            <h2>일정 관리</h2>
+
+            <!-- 월별 설정 -->
+            <label for="month-select">월별 설정</label>
+            <select id="month-select" onchange="updateCalendar()">
+                <option value="1">01월</option>
+                <option value="2">02월</option>
+                <option value="3">03월</option>
+                <option value="4" selected>04월</option>
+                <option value="5">05월</option>
+                <option value="6">06월</option>
+                <option value="7">07월</option>
+                <option value="8">08월</option>
+                <option value="9">09월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+
+            <!-- 계절 설정 -->
+            <label for="season-select">계절 설정</label>
+            <select id="season-select" onchange="updateTheme()">
+                <option value="spring">봄</option>
+                <option value="summer">여름</option>
+                <option value="fall">가을</option>
+                <option value="winter">겨울</option>
+            </select>
+
+            <!-- 색 설정 -->
+            <label>색 설정</label>
+            <div class="color-options">
+                <button class="color-btn" style="background-color: black;" onclick="selectColor('black')"></button>
+                <button class="color-btn" style="background-color: brown;" onclick="selectColor('brown')"></button>
+                <button class="color-btn" style="background-color: red;" onclick="selectColor('red')"></button>
+                <button class="color-btn" style="background-color: orange;" onclick="selectColor('orange')"></button>
+                <button class="color-btn" style="background-color: yellow;" onclick="selectColor('yellow')"></button>
+                <button class="color-btn" style="background-color: green;" onclick="selectColor('green')"></button>
+                <button class="color-btn" style="background-color: blue;" onclick="selectColor('blue')"></button>
+                <button class="color-btn" style="background-color: purple;" onclick="selectColor('purple')"></button>
+                <button class="color-btn" style="background-color: gray;" onclick="selectColor('gray')"></button>
+                <button class="color-btn" style="background-color: lightgray;" onclick="selectColor('lightgray')"></button>
+            </div>
+
+            <!-- 키워드 -->
+            <label>키워드</label>
+            <div class="keyword-options">
+                <input type="checkbox" id="fresh" onchange="updateTheme()"> 산뜻한
+                <input type="checkbox" id="clean" onchange="updateTheme()"> 정결한
+                <input type="checkbox" id="friendly" onchange="updateTheme()"> 친근적인
+                <input type="checkbox" id="warm" onchange="updateTheme()"> 푸근한
+            </div>
+
+            <!-- 적용 버튼 -->
+            <button class="apply-btn" onclick="applySettings()">사용하기</button>
+        </div>
+
+        <!-- 우측 달력 패널 -->
+        <div class="main-content">
+            <h1 id="calendar-title">4월 휴건문</h1>
+            <div id="calendar"></div>
+            <div id="theme-display">
+                <span id="theme-text">산뜻한 느낌 기운</span>
+                <div class="theme-colors">
+                    <span class="color-dot" style="background-color: orange;"></span>
+                    <span class="color-dot" style="background-color: yellow;"></span>
+                    <span class="color-dot" style="background-color: green;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
